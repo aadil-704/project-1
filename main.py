@@ -1,28 +1,41 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
+st.title('Mohammad Aadil Shaikh')
 
-st.write('hello this is my python project')
-st.title('komal')
-st.text_input('enter your name')
-st.button('submit')
-st.selectbox('select your education',
-             (''
-              'bsc','msc','phd'))
-gender=st.radio("select your gender",('male','female','other')) # single value selection
-if gender=="male":
-    st.write("you have been selected male")
-elif gender=="female":
-    st.write("you have been selected female ")
-else:
-   st.write("others")
-st.file_uploader("choose a file")
-st.checkbox("machine learning")
-st.checkbox("data warehouse")
-st.checkbox("data mining")
-st.sidebar.title("farhat")
-st.sidebar.button("click")
-df=pd.read_csv("Data/A.csv")
-st.table(df)
-st.sidebar.slider("choose a planet",['jupiter','mars','neptune'])
-st.slider("pick a number",0,50)
+st.write('MSC-DSAI')
 
+st.header('Python')
+
+st.latex(r'''
+    a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
+    \sum_{k=0}^{n-1} ar^k =
+    a \left(\frac{1-r^{n}}{1-r}\right)
+    ''')
+st.caption('This is a string that explains something above.')
+
+code = '''def hello():
+    print("Hello, Streamlit!")'''
+st.code(code, language='python')
+
+st.text('This is some text.')
+
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
+
+st.line_chart(chart_data)
+
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
+
+st.area_chart(chart_data)
+
+chart_data = pd.DataFrame(
+    np.random.randn(50, 3),
+    columns=["a", "b", "c"])
+
+st.bar_chart(chart_data)
+
+st.columns
